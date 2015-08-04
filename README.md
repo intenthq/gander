@@ -1,5 +1,7 @@
 #Gander [![Circle CI](https://circleci.com/gh/intenthq/gander.svg?style=svg)](https://circleci.com/gh/intenthq/gander) [![Coverage Status](https://coveralls.io/repos/intenthq/gander/badge.svg?branch=master&service=github)](https://coveralls.io/github/intenthq/gander?branch=master)
 
+[![Join the chat at https://gitter.im/intenthq/gander](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/intenthq/gander?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 **Gander is a scala library that extracts metadata and content from web pages.**
  
 It is based on [Goose](https://github.com/GravityLabs/goose) with the idea to:
