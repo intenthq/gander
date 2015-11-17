@@ -2,7 +2,9 @@ package com.intenthq.gander
 
 import java.net.URL
 import java.nio.charset.Charset
+import java.nio.file.{Files, Paths}
 
+import scala.util.Try
 import com.google.common.base.Charsets
 import com.google.common.io.Resources
 import com.intenthq.gander.opengraph.OpenGraphData
@@ -11,9 +13,19 @@ import org.specs2.mutable.Specification
 
 class GanderIT extends Specification {
 
+  val tempdir = System.getProperty("java.io.tmpdir") + "GanderIT/"
+  if(!Files.exists(Paths.get(tempdir))) Try(Files.createDirectory(Paths.get(tempdir)))
+
   def extract(url: String, charset: Charset = Charsets.UTF_8): PageInfo = {
-    val rawHTML = Resources.toString(new URL(url), charset)
-    Gander.extract(rawHTML).get
+    val p = Paths.get(tempdir + url.replaceAll("\\W+", "_"))
+
+    if(Files.exists(p)) {
+      Gander.extract(new String(Files.readAllBytes(p))).get
+    } else {
+      val rawHTML = Resources.toString(new URL(url), charset)
+      Try(Files.write(p, rawHTML.getBytes()))
+      Gander.extract(rawHTML).get
+    }
   }
 
   def check(pageInfo: PageInfo, title: String, processedTitle: String, metaDescription: String, metaKeywords: String,
