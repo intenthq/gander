@@ -26,7 +26,7 @@ scmInfo := Some(
 
 licenses += "Apache2" -> url("http://www.apache.org/licenses/")
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.10.6"
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
