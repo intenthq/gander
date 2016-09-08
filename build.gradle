@@ -1,0 +1,47 @@
+
+version '0.1.1' + '.' + (System.getenv("BUILD_NUMBER") ?: 'dev')
+
+
+apply plugin: 'scala'
+
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets.main.scala.srcDir "src/main/scala"
+sourceSets.test.scala.srcDir "src/test/scala"
+sourceSets.main.java.srcDirs = []
+sourceSets.test.java.srcDirs = []
+
+dependencies {
+    // The production code uses the SLF4J logging API at compile time
+    compile group: 'com.google.guava', name: 'guava', version: '19.0'
+    compile group: 'joda-time', name: 'joda-time', version: '2.9.3'
+    compile group: 'org.joda', name: 'joda-convert', version: '1.8.1'
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.9.2'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+    compile group: 'org.specs2', name: 'specs2-core_2.11', version: '3.7.3'
+    compile "org.scala-lang:scala-library:2.11.8"
+    compile "org.scala-lang:scala-compiler:2.11.8"
+
+    // Declare the dependency for your favourite test framework you want to use in your tests.
+    // TestNG is also supported by the Gradle Test task. Just change the
+    // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
+    // 'test.useTestNG()' to your build script.
+    testCompile 'junit:junit:4.12'
+}
+
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Newsriver Gradle',
+                'Implementation-Version': version,
+                'Main-Class': 'com.intenthq.gander.Gander'
+    }
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
+    zip64 true
+    baseName = project.name
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
