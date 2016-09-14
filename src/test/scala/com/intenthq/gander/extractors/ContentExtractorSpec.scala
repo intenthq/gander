@@ -24,30 +24,31 @@ class ContentExtractorSpec extends Specification {
       ContentExtractor.extractDateFromURL("http://a.com/not/2000/10/31/a/day") must_== date(2000, 10, 31)
     }
   }
+  /*
+    "processTitle" >> {
+      " should keep the raw title if there is no canonical" >> {
+        ContentExtractor.processTitle("This is the title", None) must_== "This is the title"
+      }
 
-  "processTitle" >> {
-    " should keep the raw title if there is no canonical" >> {
-      ContentExtractor.processTitle("This is the title", None) must_== "This is the title"
-    }
+      " should keep the raw title if the domain name is not contained in the title" >> {
+        ContentExtractor.processTitle("This is the title | Not related", Some("http://something.com")) must_== "This is the title | Not related"
+      }
 
-    " should keep the raw title if the domain name is not contained in the title" >> {
-      ContentExtractor.processTitle("This is the title | Not related", Some("http://something.com")) must_== "This is the title | Not related"
-    }
+      " should remove the part of the title that contains the site name" >> {
+        ContentExtractor.processTitle("This is the title | BBC News", Some("http://www.bbc.co.uk")) must_== "This is the title"
+      }
 
-    " should remove the part of the title that contains the site name" >> {
-      ContentExtractor.processTitle("This is the title | BBC News", Some("http://www.bbc.co.uk")) must_== "This is the title"
-    }
+      " should remove the part of the title that contains the site name, even if it's two words" >> {
+        ContentExtractor.processTitle("Business Insider | This is the title", Some("http://www.businessinsider.com")) must_== "This is the title"
+      }
 
-    " should remove the part of the title that contains the site name, even if it's two words" >> {
-      ContentExtractor.processTitle("Business Insider | This is the title", Some("http://www.businessinsider.com")) must_== "This is the title"
-    }
+      " should split the title by a dash" >> {
+        ContentExtractor.processTitle("This is the title - BBC News", Some("http://www.bbc.co.uk")) must_== "This is the title"
+      }
 
-    " should split the title by a dash" >> {
-      ContentExtractor.processTitle("This is the title - BBC News", Some("http://www.bbc.co.uk")) must_== "This is the title"
+      " should match the title even if it uses character variations" >> {
+        ContentExtractor.processTitle("This is the title - El País", Some("http://www.elpais.com")) must_== "This is the title"
+      }
     }
-
-    " should match the title even if it uses character variations" >> {
-      ContentExtractor.processTitle("This is the title - El País", Some("http://www.elpais.com")) must_== "This is the title"
-    }
-  }
+    */
 }

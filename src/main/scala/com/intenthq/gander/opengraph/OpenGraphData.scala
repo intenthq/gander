@@ -35,7 +35,7 @@ object OpenGraphData {
 
   def apply(elem: Element): OpenGraphData = {
     def attr(property: String): Option[String] =
-      Option(elem.select(s"meta[property=$property]").first()).map(_.attr("content"))
+      Option(elem.select(s"meta[property=$property], meta[name=$property]").first()).map(_.attr("content"))
     def url(x: String) = Try(new URL(x)).toOption
     def date(x: String) = Try(ISODateTimeFormat.dateTimeParser.parseDateTime(x)).toOption
 
