@@ -26,7 +26,9 @@ scmInfo := Some(
 
 licenses += "Apache2" -> url("http://www.apache.org/licenses/")
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.11"
+
+crossScalaVersions := Seq("2.11.11", "2.12.4")
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
@@ -49,7 +51,7 @@ libraryDependencies ++= Seq(
   "org.joda" % "joda-convert" % "1.8.1",
   "org.jsoup" % "jsoup" % "1.9.1",
   "org.slf4j"	% "slf4j-api"	% "1.7.21",
-  "org.specs2" %% "specs2-core" % "3.7.3" % "it,test"
+  "org.specs2" %% "specs2-core" % "4.0.2" % "it,test"
 )
 
 scalacOptions ++= Seq("-unchecked", "-deprecation")
