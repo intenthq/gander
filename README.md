@@ -1,4 +1,5 @@
 # Gander [![Build Status](https://img.shields.io/travis/intenthq/gander/master.svg)](https://travis-ci.org/intenthq/gander) [![Coverage Status](https://img.shields.io/coveralls/intenthq/gander.svg)](https://coveralls.io/github/intenthq/gander?branch=master) [![Maven Central](https://img.shields.io/maven-central/v/com.intenthq/gander_2.11.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.intenthq%22%20AND%20a%3A%22gander_2.11%22) [![Join the chat at https://gitter.im/intenthq/gander](https://img.shields.io/badge/gitter-join%20chat-green.svg)](https://gitter.im/intenthq/gander)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fintenthq%2Fgander.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fintenthq%2Fgander?ref=badge_shield)
 
 **Gander is a scala library that extracts metadata and content from web pages.**
 
@@ -53,3 +54,7 @@ functionalities (like downloading html from urls).
 
 Please, feel free to raise an issue, fork the repo, send pull requests...
 Any idea or improvement will be welcome.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fintenthq%2Fgander.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fintenthq%2Fgander?ref=badge_large)
